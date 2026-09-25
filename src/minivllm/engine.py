@@ -211,7 +211,7 @@ class Engine:
         )
         self.stats.prefill_tokens += len(ids)
         logits = self.model(batch, self.cache)
-        return [self._emit(s, logits[i]) for i, s in enumerate(seqs)]
+        return self._emit_all(seqs, logits)
 
     def _run_decode(self, seqs: list[Sequence]) -> list[StepOutput]:
         max_blocks = max(len(s.blocks) for s in seqs)
@@ -228,10 +228,19 @@ class Engine:
         )
         self.stats.decode_tokens += len(seqs)
         logits = self.model(batch, self.cache)
-        return [self._emit(s, logits[i]) for i, s in enumerate(seqs)]
+        return self._emit_all(seqs, logits)
 
-    def _emit(self, seq: Sequence, logits: torch.Tensor) -> StepOutput:
-        tok = sample(logits.cpu(), seq.params, seq.generator)
+    def _emit_all(self, seqs: list[Sequence], logits: torch.Tensor) -> list[StepOutput]:
+        """Greedy sequences are decided on the device in one argmax, so only token ids cross to the
+        host; sequences that sample copy just their own row."""
+        greedy = torch.argmax(logits, dim=-1).tolist()
+        out = []
+        for i, s in enumerate(seqs):
+            tok = greedy[i] if s.params.temperature == 0 else sample(logits[i].cpu(), s.params, s.generator)
+            out.append(self._emit(s, tok))
+        return out
+
+    def _emit(self, seq: Sequence, tok: int) -> StepOutput:
         seq.status = Status.RUNNING
         seq.output_ids.append(tok)
         now = time.perf_counter()

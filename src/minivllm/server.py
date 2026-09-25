@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import os
 import threading
 import time
 import uuid
@@ -234,6 +235,11 @@ def main(argv: list[str] | None = None, serve: Callable[..., None] | None = None
     from minivllm.loader import load
 
     dtype = getattr(torch, a.dtype)
+    if a.device == "cpu" and "OMP_NUM_THREADS" not in os.environ:
+        # PyTorch's OpenMP matmuls, driven from the engine thread, deadlocked intermittently on
+        # macOS under heavy load (all OpenMP workers parked at a barrier). One thread is slower but
+        # can't deadlock; set OMP_NUM_THREADS to override.
+        torch.set_num_threads(1)
     loaded = load(a.model, dtype=dtype, device=a.device)
     per_block = KVCache.bytes_per_block(loaded.model.cfg, a.block_size, dtype)
     blocks = max(1, int(a.kv_cache_gib * 2**30 // per_block))

@@ -1,0 +1,807 @@
+{
+  "env": {
+    "gpu": "Tesla T4",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.0.0",
+    "python": "3.12.13",
+    "cuda": "12.8"
+  },
+  "config": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "dtype": "float16",
+    "requests": 128,
+    "out_len": 128,
+    "kv_cache_gib": 6.0,
+    "kv_blocks": 32768,
+    "block_size": 16,
+    "prompt_tokens_mean": 39.421875
+  },
+  "chat_template_match_rate": 0.0,
+  "equality": {
+    "prompts": 64,
+    "max_new_tokens": 64,
+    "exact_match_rate": 0.890625,
+    "cases": [
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Climate change is a complex and multifaceted issue that has significant impacts on the environment, human societies, and ecosystems. While there are many misconceptions about climate change, here are some common ones:\n\n1. Climate change is a natural phenomenon: This is a common misconception that cl",
+        "hf": "Climate change is a complex and multifaceted issue that has significant impacts on the environment, human societies, and ecosystems. While there are many misconceptions about climate change, here are some common ones:\n\n1. Climate change is a natural phenomenon: This is a common misconception that cl"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure! Let's imagine you have a big box of crayons. This box is like a repository where you keep all your drawings and ideas. Each crayon is like a file in your repository.\n\nNow, let's say you want to make a new drawing. You decide to take a different color from your box and",
+        "hf": "Sure! Let's imagine you have a big box of crayons. This box is like a repository where you keep all your drawings and ideas. Each crayon is like a file in your repository.\n\nNow, let's say you want to make a new drawing. You decide to take a different color from your box and"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Neural networks are a type of machine learning model that are inspired by the structure and function of the human brain. They are composed of layers of interconnected nodes, or neurons, that process and analyze data. The key idea of neural networks is that they can learn from data and make predictio",
+        "hf": "Neural networks are a type of machine learning model that are inspired by the structure and function of the human brain. They are composed of layers of interconnected nodes, or neurons, that process and analyze data. The key idea of neural networks is that they can learn from data and make predictio"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "In the vast expanse of the ocean,\nA cycle of water, a dance of nature,\nFrom the mountains to the sea,\nThe water cycle, a grand and grand.\n\nThe sun's rays, a gentle caress,\nWhispering through the clouds, a whisper,\nThe water, a precious gift,\nTo all",
+        "hf": "In the vast expanse of the ocean,\nA cycle of water, a dance of nature,\nFrom the mountains to the sea,\nThe water cycle, a grand and grand.\n\nThe sun's rays, a gentle caress,\nWhispering through the clouds, a whisper,\nThe water, a precious gift,\nTo all"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure! Recursion is like a special way of solving problems that can be broken down into smaller, simpler problems. Imagine you have a big puzzle, and you want to solve it one piece at a time. Each piece is a smaller version of the whole puzzle, and you keep building up to the whole puzzle.\n\nFor",
+        "hf": "Sure! Recursion is like a special way of solving problems that can be broken down into smaller, simpler problems. Imagine you have a big puzzle, and you want to solve it one piece at a time. Each piece is a smaller version of the whole puzzle, and you keep building up to the whole puzzle.\n\nFor"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Climate change is a complex and multifaceted issue with numerous potential impacts on the planet. Here are some of the key pros and cons of climate change:\n\nPros:\n\n1. Economic Benefits: Climate change can lead to increased crop yields, improved energy efficiency, and increased agricultural productiv",
+        "hf": "Climate change is a complex and multifaceted issue with numerous potential impacts on the planet. Here are some of the key pros and cons of climate change:\n\nPros:\n\n1. Economic Benefits: Climate change can lead to increased crop yields, improved energy efficiency, and increased agricultural productiv"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 15,
+        "hf_len": 15,
+        "ours": "In the bank of time,\nCompound interest grows,\nFuture's wealth.",
+        "hf": "In the bank of time,\nCompound interest grows,\nFuture's wealth."
+      },
+      {
+        "match": false,
+        "first_diff": 59,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure! Imagine you have a big box of colorful building blocks. Each block represents a neuron in a neural network. Just like how you can stack different colored blocks to make a tower, we can stack different numbers of neurons to make a neural network.\n\nNow, think of each neuron as a special kind of ",
+        "hf": "Sure! Imagine you have a big box of colorful building blocks. Each block represents a neuron in a neural network. Just like how you can stack different colored blocks to make a tower, we can stack different numbers of neurons to make a neural network.\n\nNow, think of each neuron as a special type of "
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "In the realm of recursion, where the mind is a labyrinth,\nA pattern unfolds, a sequence of steps.\nEach step is a new beginning,\nA new path, a new journey.\n\nThe recursion begins, with a simple task,\nA task that is repeated, a task that is repeated.\nThe recursion continues, a recursion",
+        "hf": "In the realm of recursion, where the mind is a labyrinth,\nA pattern unfolds, a sequence of steps.\nEach step is a new beginning,\nA new path, a new journey.\n\nThe recursion begins, with a simple task,\nA task that is repeated, a task that is repeated.\nThe recursion continues, a recursion"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Certainly! Here are three surprising facts about quantum entanglement:\n\n1. Entanglement is not just a theoretical concept; it has been observed in nature. For example, in the case of two photons, entangled pairs of photons can be observed to be correlated in such a way that the state of one photon i",
+        "hf": "Certainly! Here are three surprising facts about quantum entanglement:\n\n1. Entanglement is not just a theoretical concept; it has been observed in nature. For example, in the case of two photons, entangled pairs of photons can be observed to be correlated in such a way that the state of one photon i"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Certainly! Here are three surprising facts about plate tectonics:\n\n1. **The Earth's Surface is Not a Perfect Sphere**: While the Earth's surface is approximately spherical, it is actually slightly flattened at the poles and bulging at the equator. This slight bulge is due to the Earth's rotation and",
+        "hf": "Certainly! Here are three surprising facts about plate tectonics:\n\n1. **The Earth's Surface is Not a Perfect Sphere**: While the Earth's surface is approximately spherical, it is actually slightly flattened at the poles and bulging at the equator. This slight bulge is due to the Earth's rotation and"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 17,
+        "hf_len": 17,
+        "ours": "In the brain's neural network,\nCodes and data flow,\nLearning never stops.",
+        "hf": "In the brain's neural network,\nCodes and data flow,\nLearning never stops."
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure! Let's talk about credit scores in a way that's easy to understand.\n\nImagine you have a piggy bank where you keep your coins. Now, let's say you want to borrow some money from your friend. To make sure you can pay back the money, your friend checks your piggy bank to see",
+        "hf": "Sure! Let's talk about credit scores in a way that's easy to understand.\n\nImagine you have a piggy bank where you keep your coins. Now, let's say you want to borrow some money from your friend. To make sure you can pay back the money, your friend checks your piggy bank to see"
+      },
+      {
+        "match": false,
+        "first_diff": 49,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "In the digital world, Git's power is bold,\nBranching, it's a way to explore and grow.\nFrom one branch, you can take a new path,\nTo another, you can make a new start.\n\nEach branch, a new life, a new start,\nA new code, a new code.\nBranch",
+        "hf": "In the digital world, Git's power is bold,\nBranching, it's a way to explore and grow.\nFrom one branch, you can take a new path,\nTo another, you can make a new start.\n\nEach branch, a new chapter to write,\nA new life, a new journey to take.\nBranch"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "As an AI language model, I don't have personal experiences or emotions, but I can provide you with some common misconceptions about the immune system.\n\n1. The immune system is only responsible for fighting off infections and diseases.\n\nWhile the immune system is indeed responsible for fighting off i",
+        "hf": "As an AI language model, I don't have personal experiences or emotions, but I can provide you with some common misconceptions about the immune system.\n\n1. The immune system is only responsible for fighting off infections and diseases.\n\nWhile the immune system is indeed responsible for fighting off i"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "The Pythagorean theorem is a fundamental principle in Euclidean geometry that states that in a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides. This theorem has been known s",
+        "hf": "The Pythagorean theorem is a fundamental principle in Euclidean geometry that states that in a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides. This theorem has been known s"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "The French Revolution is a complex and multifaceted event that has left a lasting impact on French society, politics, and culture. While there are many misconceptions about the Revolution, here are some common ones:\n\n1. The Revolution was a peaceful and gradual process: The French Revolution was not",
+        "hf": "The French Revolution is a complex and multifaceted event that has left a lasting impact on French society, politics, and culture. While there are many misconceptions about the Revolution, here are some common ones:\n\n1. The Revolution was a peaceful and gradual process: The French Revolution was not"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Creating a recipe for a black hole is a fascinating culinary endeavor, combining elements of science, mathematics, and imagination. Here's a simplified recipe to imagine a black hole:\n\n### Ingredients:\n1. **Black Hole Core (Material)**: The core of a black hole is made of a mysterious substance call",
+        "hf": "Creating a recipe for a black hole is a fascinating culinary endeavor, combining elements of science, mathematics, and imagination. Here's a simplified recipe to imagine a black hole:\n\n### Ingredients:\n1. **Black Hole Core (Material)**: The core of a black hole is made of a mysterious substance call"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Certainly! Here are three surprising facts about neural networks:\n\n1. **Learning to Learn**: Neural networks are not just for memorizing data; they can also learn to recognize patterns and make predictions. This capability is a key feature of neural networks, allowing them to learn from data and ada",
+        "hf": "Certainly! Here are three surprising facts about neural networks:\n\n1. **Learning to Learn**: Neural networks are not just for memorizing data; they can also learn to recognize patterns and make predictions. This capability is a key feature of neural networks, allowing them to learn from data and ada"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 23,
+        "hf_len": 23,
+        "ours": "Electric cars glow,\nSilent engines hum, a new way,\nRenewable power, a new way.",
+        "hf": "Electric cars glow,\nSilent engines hum, a new way,\nRenewable power, a new way."
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Compound interest is a financial concept that involves earning interest on the interest that has been earned or deposited. It is a powerful tool for saving and investing, as it allows you to earn interest on your initial investment over time. Here are some of the pros and cons of compound interest:\n",
+        "hf": "Compound interest is a financial concept that involves earning interest on the interest that has been earned or deposited. It is a powerful tool for saving and investing, as it allows you to earn interest on your initial investment over time. Here are some of the pros and cons of compound interest:\n"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 19,
+        "hf_len": 19,
+        "ours": "In the river's flow,\nMist dances on the banks,\nWater's cycle flows.",
+        "hf": "In the river's flow,\nMist dances on the banks,\nWater's cycle flows."
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Electric cars are often misunderstood and misinformed about their performance, safety, and overall benefits. Here are some common misconceptions about electric cars:\n\n1. **Performance**: Electric cars are generally perceived as having lower performance than traditional gasoline-powered cars. However",
+        "hf": "Electric cars are often misunderstood and misinformed about their performance, safety, and overall benefits. Here are some common misconceptions about electric cars:\n\n1. **Performance**: Electric cars are generally perceived as having lower performance than traditional gasoline-powered cars. However"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 21,
+        "hf_len": 21,
+        "ours": "In branches, we code,\nNew versions, new paths,\nGit's magic, it's true.",
+        "hf": "In branches, we code,\nNew versions, new paths,\nGit's magic, it's true."
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure! Let's talk about TCP handshakes, which are like a special handshake that helps keep the internet running smoothly.\n\nImagine you're playing a game with your friends, and you want to make sure everyone is on the same page. That's kind of what TCP handshakes do, but for the internet!\n\n",
+        "hf": "Sure! Let's talk about TCP handshakes, which are like a special handshake that helps keep the internet running smoothly.\n\nImagine you're playing a game with your friends, and you want to make sure everyone is on the same page. That's kind of what TCP handshakes do, but for the internet!\n\n"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Quantum entanglement is a phenomenon in quantum mechanics where pairs or groups of particles become interconnected in such a way that the state of one particle cannot be described independently of the state of the others, no matter the distance between them. This concept has profound implications fo",
+        "hf": "Quantum entanglement is a phenomenon in quantum mechanics where pairs or groups of particles become interconnected in such a way that the state of one particle cannot be described independently of the state of the others, no matter the distance between them. This concept has profound implications fo"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Electric cars are a rapidly growing segment of the automotive industry, offering a range of advantages over traditional gasoline-powered vehicles. These cars are powered by electric motors, which generate electricity from the battery, rather than relying on internal combustion engines. This eliminat",
+        "hf": "Electric cars are a rapidly growing segment of the automotive industry, offering a range of advantages over traditional gasoline-powered vehicles. These cars are powered by electric motors, which generate electricity from the battery, rather than relying on internal combustion engines. This eliminat"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Certainly! Let's imagine a recipe for branching in Git, which is a powerful version control system used to manage and manage changes in a project.\n\n### Ingredients:\n1. **Git Repository**: The main container where all your code is stored.\n2. **Branch**: A specific version of the repository that you a",
+        "hf": "Certainly! Let's imagine a recipe for branching in Git, which is a powerful version control system used to manage and manage changes in a project.\n\n### Ingredients:\n1. **Git Repository**: The main container where all your code is stored.\n2. **Branch**: A specific version of the repository that you a"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, here are three surprising facts about sourdough bread:\n\n1. Sourdough bread is not a type of bread, but rather a type of bread dough. It is made by fermenting flour with wild yeast and bacteria, which creates a soft, chewy texture and a unique flavor.\n\n2. Sourd",
+        "hf": "Sure, here are three surprising facts about sourdough bread:\n\n1. Sourdough bread is not a type of bread, but rather a type of bread dough. It is made by fermenting flour with wild yeast and bacteria, which creates a soft, chewy texture and a unique flavor.\n\n2. Sourd"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure! Let's talk about sourdough bread, which is a type of bread that's made using a special kind of yeast called sourdough yeast. Imagine you have a special kind of bread that you can make yourself, but it's made with a special kind of yeast that lives in the dough. This yeast",
+        "hf": "Sure! Let's talk about sourdough bread, which is a type of bread that's made using a special kind of yeast called sourdough yeast. Imagine you have a special kind of bread that you can make yourself, but it's made with a special kind of yeast that lives in the dough. This yeast"
+      },
+      {
+        "match": false,
+        "first_diff": 13,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "In the world of numbers, the Pythagorean theorem is a gem,\nA theorem that connects the square of one side to the square of the other.\nIt's a simple formula, yet it's a powerful one,\nA theorem that's been around for ages, yet it's still so true.\n\nThe theorem states that",
+        "hf": "In the world of numbers, the Pythagorean theorem is a cornerstone,\nA theorem that connects the sides of a right-angled triangle.\nIt states that the square of the hypotenuse equals the sum of the squares of the other two sides,\nA theorem that has stood the test of time, a testament to the"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "In the depths of space, where gravity's pull is strong,\nA black hole, a place of mystery and fear.\nIts presence, a silent threat to all who dare to look,\nA place where light can never escape.\n\nThe black hole's gravity, a force so strong,\nIt pulls in everything, from stars to",
+        "hf": "In the depths of space, where gravity's pull is strong,\nA black hole, a place of mystery and fear.\nIts presence, a silent threat to all who dare to look,\nA place where light can never escape.\n\nThe black hole's gravity, a force so strong,\nIt pulls in everything, from stars to"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "The Roman Empire's fall was a complex and multifaceted process that began in the 3rd century AD and was marked by a series of events that culminated in the fall of Rome in 476 AD. The key ideas of the Roman Empire's fall can be summarized as follows:\n\n1. Decline",
+        "hf": "The Roman Empire's fall was a complex and multifaceted process that began in the 3rd century AD and was marked by a series of events that culminated in the fall of Rome in 476 AD. The key ideas of the Roman Empire's fall can be summarized as follows:\n\n1. Decline"
+      },
+      {
+        "match": false,
+        "first_diff": 45,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, I'd be happy to describe sourdough bread as if it were a recipe! Here's a simple recipe for making sourdough bread:\n\nIngredients:\n- 2 pounds of all-purpose flour\n- 1 cup of whole wheat flour\n- 1/2 cup of salt\n- 1/",
+        "hf": "Sure, I'd be happy to describe sourdough bread as if it were a recipe! Here's a simple recipe for making sourdough bread:\n\nIngredients:\n- 2 pounds of all-purpose flour\n- 1/2 cup of active dry yeast\n- 1 tablespoon of sugar\n- 1 teaspoon"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "In the garden of life,\nPhotosynthesis blooms,\nA plant's green heart,\nA dance of light and color.\n\nWith chlorophyll's green,\nIt captures the sun's energy,\nAnd turns it into food,\nA living force that's strong.\n\nThe leaves twirl and sway,\nAs the plant's energy flows,\n",
+        "hf": "In the garden of life,\nPhotosynthesis blooms,\nA plant's green heart,\nA dance of light and color.\n\nWith chlorophyll's green,\nIt captures the sun's energy,\nAnd turns it into food,\nA living force that's strong.\n\nThe leaves twirl and sway,\nAs the plant's energy flows,\n"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Electric cars, also known as electric vehicles (EVs), have gained significant popularity in recent years due to their environmental benefits, convenience, and potential for reducing carbon emissions. However, like any other technology, electric cars also come with their own set of pros and cons. Her",
+        "hf": "Electric cars, also known as electric vehicles (EVs), have gained significant popularity in recent years due to their environmental benefits, convenience, and potential for reducing carbon emissions. However, like any other technology, electric cars also come with their own set of pros and cons. Her"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "In the heart of France, where the sun never sets,\nA revolution shook the world, a storm of change.\nThe people rose up, their voices loud and clear,\nThe king was overthrown, and the revolution began.\n\nThe streets were filled with joy and hope,\nAs the new government took the reins.\nThe people",
+        "hf": "In the heart of France, where the sun never sets,\nA revolution shook the world, a storm of change.\nThe people rose up, their voices loud and clear,\nThe king was overthrown, and the revolution began.\n\nThe streets were filled with joy and hope,\nAs the new government took the reins.\nThe people"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 25,
+        "hf_len": 25,
+        "ours": "In the oven, it rises,\nSoft, golden, and full of life,\nSourdough bread, a joy.",
+        "hf": "In the oven, it rises,\nSoft, golden, and full of life,\nSourdough bread, a joy."
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Recursion is a powerful concept in computer science that allows a function to solve a problem by breaking it down into smaller instances of the same problem. However, there are several common misconceptions about recursion that can lead to confusion and misunderstanding. Here are some of the most co",
+        "hf": "Recursion is a powerful concept in computer science that allows a function to solve a problem by breaking it down into smaller instances of the same problem. However, there are several common misconceptions about recursion that can lead to confusion and misunderstanding. Here are some of the most co"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Certainly! Here are three surprising facts about the Pythagorean theorem:\n\n1. The Pythagorean theorem is not just a mathematical fact, but a fundamental principle in geometry. It states that in a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is",
+        "hf": "Certainly! Here are three surprising facts about the Pythagorean theorem:\n\n1. The Pythagorean theorem is not just a mathematical fact, but a fundamental principle in geometry. It states that in a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "TCP (Transmission Control Protocol) handshakes are a crucial part of the TCP/IP protocol suite, and they are often the subject of misunderstandings. Here are some common misconceptions about TCP handshakes:\n\n1. **TCP Handshakes Are Only Used for Establishing Connections:**\n   - **Misconception",
+        "hf": "TCP (Transmission Control Protocol) handshakes are a crucial part of the TCP/IP protocol suite, and they are often the subject of misunderstandings. Here are some common misconceptions about TCP handshakes:\n\n1. **TCP Handshakes Are Only Used for Establishing Connections:**\n   - **Misconception"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 13,
+        "hf_len": 13,
+        "ours": "I'm sorry, but I can't assist with that.",
+        "hf": "I'm sorry, but I can't assist with that."
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "A bill becomes law in the United States government through a process that involves several key steps:\n\n1. **Proposal**: The first step is for a bill to be introduced in the United States Congress. This is typically done by a member of Congress or a group of members who propose a bill.\n\n2. **Committe",
+        "hf": "A bill becomes law in the United States government through a process that involves several key steps:\n\n1. **Proposal**: The first step is for a bill to be introduced in the United States Congress. This is typically done by a member of Congress or a group of members who propose a bill.\n\n2. **Committe"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "The Pythagorean theorem is a fundamental principle in Euclidean geometry that states that in a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides. This theorem has numerous app",
+        "hf": "The Pythagorean theorem is a fundamental principle in Euclidean geometry that states that in a right-angled triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the lengths of the other two sides. This theorem has numerous app"
+      },
+      {
+        "match": false,
+        "first_diff": 43,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "The water cycle, also known as the hydrological cycle, is a continuous process that involves the movement of water on, above, and below the surface of the Earth. It is a crucial part of the Earth's water cycle and plays a vital role in maintaining the balance of the planet's water resources. Here ar",
+        "hf": "The water cycle, also known as the hydrological cycle, is a continuous process that involves the movement of water on, above, and below the surface of the Earth. It is a crucial part of the Earth's climate system and plays a vital role in regulating the Earth's temperature and weather patterns. Here"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, I'd be happy to help you describe electric cars as if they were a recipe! Here's a simple recipe for electric cars:\n\n### Ingredients:\n1. **Battery**: The heart of the electric car. It's the core component that stores and releases energy to power the vehicle.\n2. **Charging Station",
+        "hf": "Sure, I'd be happy to help you describe electric cars as if they were a recipe! Here's a simple recipe for electric cars:\n\n### Ingredients:\n1. **Battery**: The heart of the electric car. It's the core component that stores and releases energy to power the vehicle.\n2. **Charging Station"
+      },
+      {
+        "match": false,
+        "first_diff": 26,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Black holes are extreme gravitational systems that are formed when massive objects, such as stars or planets, collapse under their own gravity. The core of a black hole is a singularity, which is the point of infinite density and zero volume. This singularity is surrounded by a region of spacetime c",
+        "hf": "Black holes are extreme gravitational systems that are formed when massive objects, such as stars or planets, collapse under their own gravity. The extreme gravity at the center of a black hole causes light to be deflected and bent, creating a shadow of the black hole. The event horizon, the boundar"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure! Let's talk about the immune system in a way that's easy to understand, like you're a little kid.\n\nImagine your body is like a big playground where all the little friends (or \"cells\") play. This playground is called the immune system. It's like a team of superheroes that protect us from",
+        "hf": "Sure! Let's talk about the immune system in a way that's easy to understand, like you're a little kid.\n\nImagine your body is like a big playground where all the little friends (or \"cells\") play. This playground is called the immune system. It's like a team of superheroes that protect us from"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, I'd be happy to describe the Pythagorean theorem as a recipe! Here's a simple recipe for understanding the theorem:\n\n### Ingredients:\n1. **Base (a)**: This is the first side of the right triangle. It's the side that's opposite the right angle.\n2. **Height (",
+        "hf": "Sure, I'd be happy to describe the Pythagorean theorem as a recipe! Here's a simple recipe for understanding the theorem:\n\n### Ingredients:\n1. **Base (a)**: This is the first side of the right triangle. It's the side that's opposite the right angle.\n2. **Height ("
+      },
+      {
+        "match": false,
+        "first_diff": 20,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, here are three surprising facts about how vaccines work:\n\n1. Vaccines are not just a one-time treatment; they are a long-term strategy for preventing diseases. Unlike antibiotics, which are used to treat bacterial infections, vaccines are designed to stimulate the immune system to recognize an",
+        "hf": "Sure, here are three surprising facts about how vaccines work:\n\n1. Vaccines are not just a way to protect against diseases, but also to protect against the real threat of the real thing. Vaccines work by introducing a weakened or dead form of the pathogen into the body, so that the immune system rec"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, I'd be happy to help you understand neural networks as if they were a recipe! Let's break it down into its basic components and ingredients, then combine them to create a complete neural network recipe.\n\n### Ingredients:\n1. **Input Layer**: This is the first layer of the neural network. It rec",
+        "hf": "Sure, I'd be happy to help you understand neural networks as if they were a recipe! Let's break it down into its basic components and ingredients, then combine them to create a complete neural network recipe.\n\n### Ingredients:\n1. **Input Layer**: This is the first layer of the neural network. It rec"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, I'd be happy to describe how vaccines work as if it were a recipe! Let's start with the basics:\n\n### 1. **Ingredients**\n   - **Vaccines** are made from a combination of different types of microorganisms, which are called antigens. These antigens are usually inactivated",
+        "hf": "Sure, I'd be happy to describe how vaccines work as if it were a recipe! Let's start with the basics:\n\n### 1. **Ingredients**\n   - **Vaccines** are made from a combination of different types of microorganisms, which are called antigens. These antigens are usually inactivated"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "In the digital world, where the mind is the code,\nNeural networks dance, their circuits so clear.\nFrom simple to complex, they learn and grow,\nThrough layers, they learn, and their code they make.\n\nWith each iteration, they learn, and their code they make,\nA world of data, a world",
+        "hf": "In the digital world, where the mind is the code,\nNeural networks dance, their circuits so clear.\nFrom simple to complex, they learn and grow,\nThrough layers, they learn, and their code they make.\n\nWith each iteration, they learn, and their code they make,\nA world of data, a world"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, here are three surprising facts about recursion:\n\n1. **Recursion can be used to solve problems that are not inherently recursive**: While recursion is a powerful technique for solving problems that can be broken down into smaller, similar subproblems, it's important to note that not all proble",
+        "hf": "Sure, here are three surprising facts about recursion:\n\n1. **Recursion can be used to solve problems that are not inherently recursive**: While recursion is a powerful technique for solving problems that can be broken down into smaller, similar subproblems, it's important to note that not all proble"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, here are three surprising facts about compound interest:\n\n1. Compound interest can be more effective than simple interest over a longer period of time. This is because the interest earned on the interest is added to the principal, and the interest earned on this new amount is calculated on top",
+        "hf": "Sure, here are three surprising facts about compound interest:\n\n1. Compound interest can be more effective than simple interest over a longer period of time. This is because the interest earned on the interest is added to the principal, and the interest earned on this new amount is calculated on top"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure! Let's talk about how vaccines work to help us stay healthy.\n\nImagine you have a toy that you've been playing with for a long time. Now, let's say you get sick and it hurts a lot. What do you do? You might try to get a new toy to play with, right?",
+        "hf": "Sure! Let's talk about how vaccines work to help us stay healthy.\n\nImagine you have a toy that you've been playing with for a long time. Now, let's say you get sick and it hurts a lot. What do you do? You might try to get a new toy to play with, right?"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Certainly! Here are three surprising facts about the Roman Empire's fall:\n\n1. The fall of the Roman Empire was not a sudden and violent event, but rather a gradual process that began with the decline of the Western Roman Empire in the 5th century AD. This decline was due to a combination of factors,",
+        "hf": "Certainly! Here are three surprising facts about the Roman Empire's fall:\n\n1. The fall of the Roman Empire was not a sudden and violent event, but rather a gradual process that began with the decline of the Western Roman Empire in the 5th century AD. This decline was due to a combination of factors,"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "The French Revolution was a period of great change and upheaval in France. It began in 1789, when a group of people called the Jacobins took control of the government. They wanted to change the way things were done and wanted to make France a better place.\n\nThe revolution was a long and difficult",
+        "hf": "The French Revolution was a period of great change and upheaval in France. It began in 1789, when a group of people called the Jacobins took control of the government. They wanted to change the way things were done and wanted to make France a better place.\n\nThe revolution was a long and difficult"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure! The water cycle is a natural process that helps keep our planet cool and wet. It's like a big water dance that goes on all around us.\n\nImagine the Earth as a giant bathtub. The water in the bathtub comes in from the sky, which is called precipitation. This precipitation can come in the form of",
+        "hf": "Sure! The water cycle is a natural process that helps keep our planet cool and wet. It's like a big water dance that goes on all around us.\n\nImagine the Earth as a giant bathtub. The water in the bathtub comes in from the sky, which is called precipitation. This precipitation can come in the form of"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Credit scores are numerical values assigned to individuals based on their credit history, which includes information such as credit card balances, loan payments, and payment history. These scores are used by lenders to determine the likelihood of a borrower defaulting on their loans or credit card p",
+        "hf": "Credit scores are numerical values assigned to individuals based on their credit history, which includes information such as credit card balances, loan payments, and payment history. These scores are used by lenders to determine the likelihood of a borrower defaulting on their loans or credit card p"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "The French Revolution, also known as the French Revolution of 1789-1799, was a period of radical social and political upheaval in France. It was a time of great change and upheaval, with many of the country's political, social, and economic structures being reformed. However",
+        "hf": "The French Revolution, also known as the French Revolution of 1789-1799, was a period of radical social and political upheaval in France. It was a time of great change and upheaval, with many of the country's political, social, and economic structures being reformed. However"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Sure, here are three surprising facts about electric cars:\n\n1. Electric cars are not just for the rich and famous. In fact, electric cars are becoming increasingly popular among the general public. According to a report by the International Energy Agency, the global market for electric vehicles is e",
+        "hf": "Sure, here are three surprising facts about electric cars:\n\n1. Electric cars are not just for the rich and famous. In fact, electric cars are becoming increasingly popular among the general public. According to a report by the International Energy Agency, the global market for electric vehicles is e"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 64,
+        "hf_len": 64,
+        "ours": "Certainly! Here are three surprising facts about TCP handshakes:\n\n1. TCP handshakes are not always necessary for establishing a connection. In fact, TCP handshakes are often unnecessary and can even cause problems if they are not properly handled. For example, if a TCP connection is established with",
+        "hf": "Certainly! Here are three surprising facts about TCP handshakes:\n\n1. TCP handshakes are not always necessary for establishing a connection. In fact, TCP handshakes are often unnecessary and can even cause problems if they are not properly handled. For example, if a TCP connection is established with"
+      },
+      {
+        "match": true,
+        "first_diff": null,
+        "ours_len": 19,
+        "hf_len": 19,
+        "ours": "In the quantum realm,\nParticles dance, entwined,\nNature's dance of light.",
+        "hf": "In the quantum realm,\nParticles dance, entwined,\nNature's dance of light."
+      }
+    ]
+  },
+  "serving": [
+    {
+      "workload": "fixed",
+      "concurrency": 1,
+      "minivllm": {
+        "output_tokens": 16384,
+        "seconds": 495.10806191200004,
+        "tokens_per_s": 33.09176573843,
+        "p50_latency_s": 3.8664787190000425,
+        "p99_latency_s": 3.969871471000033,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16384,
+        "seconds": 531.8066323870001,
+        "tokens_per_s": 30.80819042526951,
+        "p50_latency_s": 4.153761583000005,
+        "p99_latency_s": 4.235584786000118
+      }
+    },
+    {
+      "workload": "fixed",
+      "concurrency": 2,
+      "minivllm": {
+        "output_tokens": 16384,
+        "seconds": 240.6707384450001,
+        "tokens_per_s": 68.07641055933435,
+        "p50_latency_s": 3.7634465969999837,
+        "p99_latency_s": 3.8318807620000825,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16384,
+        "seconds": 246.83480337499986,
+        "tokens_per_s": 66.3763771396081,
+        "p50_latency_s": 3.8091623180000624,
+        "p99_latency_s": 4.313554210999882
+      }
+    },
+    {
+      "workload": "fixed",
+      "concurrency": 4,
+      "minivllm": {
+        "output_tokens": 16384,
+        "seconds": 123.89158383100016,
+        "tokens_per_s": 132.24465692802286,
+        "p50_latency_s": 3.8642228559999694,
+        "p99_latency_s": 3.9541557909999483,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16384,
+        "seconds": 124.00477639699966,
+        "tokens_per_s": 132.12394293222093,
+        "p50_latency_s": 3.8651114589997633,
+        "p99_latency_s": 4.090332795999984
+      }
+    },
+    {
+      "workload": "fixed",
+      "concurrency": 8,
+      "minivllm": {
+        "output_tokens": 16384,
+        "seconds": 62.830320937000124,
+        "tokens_per_s": 260.76581745345874,
+        "p50_latency_s": 3.922663031999946,
+        "p99_latency_s": 4.013193847999901,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16384,
+        "seconds": 62.52729330399961,
+        "tokens_per_s": 262.02957355507317,
+        "p50_latency_s": 3.8985775940000167,
+        "p99_latency_s": 3.9684745120002844
+      }
+    },
+    {
+      "workload": "fixed",
+      "concurrency": 16,
+      "minivllm": {
+        "output_tokens": 16384,
+        "seconds": 32.407028141999945,
+        "tokens_per_s": 505.5693452731667,
+        "p50_latency_s": 4.037367968000126,
+        "p99_latency_s": 4.109737437000149,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16384,
+        "seconds": 31.67372133200024,
+        "tokens_per_s": 517.2742358962128,
+        "p50_latency_s": 3.9485767189999024,
+        "p99_latency_s": 4.032956906999971
+      }
+    },
+    {
+      "workload": "fixed",
+      "concurrency": 32,
+      "minivllm": {
+        "output_tokens": 16384,
+        "seconds": 17.010274953000135,
+        "tokens_per_s": 963.1825496806754,
+        "p50_latency_s": 4.263304623999829,
+        "p99_latency_s": 4.291561639000065,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16384,
+        "seconds": 16.226066953999634,
+        "tokens_per_s": 1009.7332918968041,
+        "p50_latency_s": 4.073631259000194,
+        "p99_latency_s": 4.076493245000165
+      }
+    },
+    {
+      "workload": "fixed",
+      "concurrency": 64,
+      "minivllm": {
+        "output_tokens": 16384,
+        "seconds": 10.04232784099986,
+        "tokens_per_s": 1631.4942371338411,
+        "p50_latency_s": 5.034882828999798,
+        "p99_latency_s": 5.035482897000293,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16384,
+        "seconds": 8.58256712399998,
+        "tokens_per_s": 1908.9859436326897,
+        "p50_latency_s": 4.29731443899982,
+        "p99_latency_s": 4.29731443899982
+      }
+    },
+    {
+      "workload": "mixed",
+      "concurrency": 1,
+      "minivllm": {
+        "output_tokens": 16859,
+        "seconds": 515.0719463089999,
+        "tokens_per_s": 32.73134970912591,
+        "p50_latency_s": 4.22662580899987,
+        "p99_latency_s": 7.271629716999996,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16859,
+        "seconds": 551.9399170010001,
+        "tokens_per_s": 30.54499136718436,
+        "p50_latency_s": 4.534639898000023,
+        "p99_latency_s": 7.810593215000154
+      }
+    },
+    {
+      "workload": "mixed",
+      "concurrency": 2,
+      "minivllm": {
+        "output_tokens": 16859,
+        "seconds": 250.3926551300001,
+        "tokens_per_s": 67.3302497281602,
+        "p50_latency_s": 4.113574283000162,
+        "p99_latency_s": 7.084939817000304,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16859,
+        "seconds": 323.18767665500036,
+        "tokens_per_s": 52.164736522416405,
+        "p50_latency_s": 5.0158448840002166,
+        "p99_latency_s": 7.475423351000245
+      }
+    },
+    {
+      "workload": "mixed",
+      "concurrency": 4,
+      "minivllm": {
+        "output_tokens": 16859,
+        "seconds": 129.33597731400005,
+        "tokens_per_s": 130.35042801021993,
+        "p50_latency_s": 4.155571913000131,
+        "p99_latency_s": 7.294898002000082,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16859,
+        "seconds": 188.78057992200047,
+        "tokens_per_s": 89.30473678471444,
+        "p50_latency_s": 6.556519712000409,
+        "p99_latency_s": 7.23882477799998
+      }
+    },
+    {
+      "workload": "mixed",
+      "concurrency": 8,
+      "minivllm": {
+        "output_tokens": 16859,
+        "seconds": 69.35531372399964,
+        "tokens_per_s": 243.08159093751067,
+        "p50_latency_s": 4.367383060000066,
+        "p99_latency_s": 7.693035952999708,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16859,
+        "seconds": 107.6781888179994,
+        "tokens_per_s": 156.56838385808607,
+        "p50_latency_s": 6.854944585999874,
+        "p99_latency_s": 7.203956416999972
+      }
+    },
+    {
+      "workload": "mixed",
+      "concurrency": 16,
+      "minivllm": {
+        "output_tokens": 16859,
+        "seconds": 37.92303332699976,
+        "tokens_per_s": 444.55832039145014,
+        "p50_latency_s": 4.542684168000051,
+        "p99_latency_s": 7.906860859000517,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16859,
+        "seconds": 56.26098381599968,
+        "tokens_per_s": 299.6570421721915,
+        "p50_latency_s": 7.0550077289999535,
+        "p99_latency_s": 7.385921553999651
+      }
+    },
+    {
+      "workload": "mixed",
+      "concurrency": 32,
+      "minivllm": {
+        "output_tokens": 16859,
+        "seconds": 24.063515443999677,
+        "tokens_per_s": 700.6042005472584,
+        "p50_latency_s": 5.165201496000009,
+        "p99_latency_s": 9.605464677999407,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16859,
+        "seconds": 29.888397149999946,
+        "tokens_per_s": 564.0650422098674,
+        "p50_latency_s": 7.558981941999264,
+        "p99_latency_s": 7.613134373999856
+      }
+    },
+    {
+      "workload": "mixed",
+      "concurrency": 64,
+      "minivllm": {
+        "output_tokens": 16859,
+        "seconds": 17.300021844000185,
+        "tokens_per_s": 974.5074400496705,
+        "p50_latency_s": 6.46375244399951,
+        "p99_latency_s": 12.115366416000143,
+        "preemptions": 0
+      },
+      "hf_generate": {
+        "output_tokens": 16859,
+        "seconds": 16.44666484299978,
+        "tokens_per_s": 1025.0710500235994,
+        "p50_latency_s": 8.306989870000507,
+        "p99_latency_s": 8.306989870000507
+      }
+    }
+  ]
+}

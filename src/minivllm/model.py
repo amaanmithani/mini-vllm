@@ -25,6 +25,10 @@ class Batch:
     is_prefill: bool
     seq_lens: list[int]  # prefill: tokens per sequence (sums to T); decode: context length incl. new token
     block_tables: torch.Tensor | None = None  # decode: [B, max_blocks]
+    # Filled in once per forward by the model and shared by all layers:
+    cos: torch.Tensor | None = None
+    sin: torch.Tensor | None = None
+    decode_mask: torch.Tensor | None = None  # [B, 1, 1, L] True where a cached position is valid
 
 
 class RMSNorm(nn.Module):
@@ -45,12 +49,16 @@ class Rotary(nn.Module):
         inv = 1.0 / (theta ** (torch.arange(0, head_dim, 2, dtype=torch.float32) / head_dim))
         self.register_buffer("inv_freq", inv, persistent=False)
 
-    def forward(self, x: torch.Tensor, positions: torch.Tensor) -> torch.Tensor:
-        """x: [T, heads, head_dim]; rotate-half convention (as in HF Llama/Qwen2)."""
+    def tables(self, positions: torch.Tensor, dtype: torch.dtype) -> tuple[torch.Tensor, torch.Tensor]:
+        """cos/sin for these positions, [T, 1, head_dim]: computed in fp32, used in the activation
+        dtype (the same precision as HF). Computed once per forward and shared by every layer."""
         freqs = positions.float()[:, None] * self.inv_freq[None, :]  # type: ignore[index]
         emb = torch.cat([freqs, freqs], dim=-1)
-        # Same precision as HF: cos/sin computed in fp32, applied in the activation dtype.
-        cos, sin = emb.cos().to(x.dtype)[:, None, :], emb.sin().to(x.dtype)[:, None, :]
+        return emb.cos().to(dtype)[:, None, :], emb.sin().to(dtype)[:, None, :]
+
+    @staticmethod
+    def rotate(x: torch.Tensor, cos: torch.Tensor, sin: torch.Tensor) -> torch.Tensor:
+        """x: [T, heads, head_dim]; rotate-half convention (as in HF Llama/Qwen2)."""
         half = x.shape[-1] // 2
         rot = torch.cat([-x[..., half:], x[..., :half]], dim=-1)
         return x * cos + rot * sin
@@ -65,12 +73,12 @@ class Attention(nn.Module):
         self.k_proj = nn.Linear(cfg.hidden_size, self.kvh * self.d, bias=True)
         self.v_proj = nn.Linear(cfg.hidden_size, self.kvh * self.d, bias=True)
         self.o_proj = nn.Linear(self.h * self.d, cfg.hidden_size, bias=False)
-        self.rotary = Rotary(self.d, cfg.rope_theta)
 
     def forward(self, x: torch.Tensor, batch: Batch, cache: KVCache) -> torch.Tensor:
         t = x.shape[0]
-        q = self.rotary(self.q_proj(x).view(t, self.h, self.d), batch.positions)
-        k = self.rotary(self.k_proj(x).view(t, self.kvh, self.d), batch.positions)
+        assert batch.cos is not None and batch.sin is not None
+        q = Rotary.rotate(self.q_proj(x).view(t, self.h, self.d), batch.cos, batch.sin)
+        k = Rotary.rotate(self.k_proj(x).view(t, self.kvh, self.d), batch.cos, batch.sin)
         v = self.v_proj(x).view(t, self.kvh, self.d)
         cache.write(self.layer, batch.slots, k, v)
         out = self._prefill(q, k, v, batch) if batch.is_prefill else self._decode(q, batch, cache)
@@ -90,13 +98,11 @@ class Attention(nn.Module):
     def _decode(self, q: torch.Tensor, batch: Batch, cache: KVCache) -> torch.Tensor:
         assert batch.block_tables is not None
         k, v = cache.gather(self.layer, batch.block_tables)  # [B, L, kvh, d]
-        lens = torch.tensor(batch.seq_lens, device=q.device)
-        valid = torch.arange(k.shape[1], device=q.device)[None, :] < lens[:, None]  # [B, L]
         out = F.scaled_dot_product_attention(
             q[:, :, None, :],  # [B, h, 1, d]
             k.transpose(1, 2),
             v.transpose(1, 2),
-            attn_mask=valid[:, None, None, :],
+            attn_mask=batch.decode_mask,
             enable_gqa=True,
         )
         return out[:, :, 0, :]
@@ -133,6 +139,7 @@ class Qwen2(nn.Module):
         self.embed_tokens = nn.Embedding(cfg.vocab_size, cfg.hidden_size)
         self.layers = nn.ModuleList(DecoderLayer(cfg, i) for i in range(cfg.num_hidden_layers))
         self.norm = RMSNorm(cfg.hidden_size, cfg.rms_norm_eps)
+        self.rotary = Rotary(cfg.head_dim, cfg.rope_theta)
         self.lm_head = nn.Linear(cfg.hidden_size, cfg.vocab_size, bias=False)
         if cfg.tie_word_embeddings:
             self.lm_head.weight = self.embed_tokens.weight
@@ -142,6 +149,14 @@ class Qwen2(nn.Module):
         """Returns logits (float32): one row per sequence (its last token) or, with
         last_only=False, one per input token."""
         x = self.embed_tokens(batch.input_ids)
+        batch.cos, batch.sin = self.rotary.tables(batch.positions, x.dtype)
+        if not batch.is_prefill:
+            assert batch.block_tables is not None
+            max_len = batch.block_tables.shape[1] * cache.block_size
+            lens = torch.tensor(batch.seq_lens, device=x.device)
+            batch.decode_mask = (torch.arange(max_len, device=x.device)[None, :] < lens[:, None])[
+                :, None, None, :
+            ]
         for layer in self.layers:
             x = layer(x, batch, cache)
         x = self.norm(x)

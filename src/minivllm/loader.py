@@ -82,8 +82,7 @@ def load(model: str, dtype: torch.dtype = torch.float16, device: str | torch.dev
     inv_freq = 1.0 / (
         cfg.rope_theta ** (torch.arange(0, cfg.head_dim, 2, device=device).float() / cfg.head_dim)
     )
-    for layer in m.layers:
-        layer.self_attn.rotary.inv_freq = inv_freq  # type: ignore[union-attr]
+    m.rotary.inv_freq = inv_freq
     if cfg.tie_word_embeddings:
         m.lm_head.weight = m.embed_tokens.weight
     return Loaded(m.eval(), Tokenizer(path), path)

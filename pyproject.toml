@@ -39,7 +39,7 @@ src = ["src", "tests"]
 select = ["E", "F", "I", "B", "UP", "SIM", "RUF"]
 
 [tool.ruff.lint.per-file-ignores]
-"bench/*" = ["E501", "RUF001"]
+"bench/*" = ["E501", "RUF001", "SIM115"]
 "kaggle/*" = ["E501"]
 
 [tool.mypy]

@@ -1,0 +1,6 @@
+{
+  "transformers": "5.17.0",
+  "prompts": 128,
+  "template_text_match_rate": 1.0,
+  "token_id_match_rate": 1.0
+}
